@@ -1,11 +1,16 @@
-# MultiBaas Sample App
+# Locked-Vault-DApp
 
-The purpose of this project is to demonstrate how to build a frontend-only decentralized application that uses [MultiBaas](https://docs.curvegrid.com/multibaas/) to handle the complexities of interacting with an EVM smart contract.
+The is a hackathon project which try to build a frontend-only decentralized application that uses [MultiBaas](https://docs.curvegrid.com/multibaas/) to handle a smart contract which deployed on CELO and could lock funds until a future date.
 
-![Screenshot](screenshots/homepage.png)
+
+## TODO
+- [x] Contract Deployment
+- [x] Frontend (But remain some issues) 
+- [ ] Incorporate advance tools in MultiBaas, like Webhooks, Event Queries, etc.
 
 ## Quickstart Guide
 
+First, need to follow the guides from curvegrid, please follow the below instruction to prepare setup.
 You will need a few things to get started. Do this *before* running npm install.
 
 1. Go to [console.curvegrid.com](https://console.curvegrid.com), sign up, and create a MultiBaas deployment on your network of choice (use "Curvegrid Testnet" if unsure).
@@ -18,29 +23,21 @@ You will need a few things to get started. Do this *before* running npm install.
 Then run the installation and follow the steps as prompted:
 
 ```sh
-git clone https://github.com/curvegrid/multibaas-sample-app.git
-cd multibaas-sample-app
+git clone https://github.com/Alan0817/Locked-Vault-DApp.git # or git@github.com:Alan0817/Locked-Vault-DApp.git
+cd Locked-Vault-DApp
 npm install
 ```
 
 ## Overview
 
-The repository consists of two sub-projects:
+Follow the template from curvegrid, this project consist of two parts:
 
-- The `blockchain` folder contains a [Hardhat](https://hardhat.org/) project that uses the [Hardhat MultiBaas Plugin](https://github.com/curvegrid/hardhat-multibaas-plugin) to compile the `SimpleVoting` smart contract, deploy it to the network, and link it to a MultiBaas deployment so that we can interact with it via the REST API.
+- The `blockchain` folder contains a [Hardhat](https://hardhat.org/) project that uses the [Hardhat MultiBaas Plugin](https://github.com/curvegrid/hardhat-multibaas-plugin) to compile the smart contract, deploy it to the network, and link it to a MultiBaas deployment so that we can interact with it via the REST API.
 - The `frontend` folder contains a Next.js web application that provides a UI for interacting with the smart contract using the [MultiBaas SDK](https://github.com/curvegrid/multibaas-sdk-typescript).
 
 ## MultiBaas Deployment Setup
 
 Using the [Curvegrid Console](https://console.curvegrid.com/), create a MultiBaas deployment on the Curvegrid Testnet. We recommend using this network for smart contract development due to its near-instant block finality and easily accessible faucet for account funding. It is also possible to use this demo app on any of our other supported networks but you will need tokens to deploy and interact with the smart contract.
-
-### Connecting to the Curvegrid Testnet
-
-Once you have created and logged into your MultiBaas Deployment, you may automatically configure your MetaMask to connect to the Curvegrid Test Network by clicking the `Select Signer` button in the top navbar and then clicking `Switch Network` button. Click the `Continue` button in `Add Network` modal. MetaMask will prompt you that MultiBaas is adding a network on your behalf. Review the details, click the `Approve` button, and then finally click the `Switch network` button.
-
-### Requesting Ether from the Faucet
-
-Via the top navbar, go to the `Blockchain > Faucet` page and request 1 ETH to your deployer account address.
 
 ### Creating API Keys
 
@@ -56,15 +53,6 @@ Otherwise, navigate to the `Admin > API Keys` page and create new keys with the 
 
 Please make sure not to mix up these API keys.
 
-### CORS
-
-For security reasons, your front end application needs permissions from the server to allow requests. If you follow the installation script, this will be done for you.
-
-Navigate to `Admin > CORS Origins` and add `http://localhost:3000` to the list of allowed origins. By default, MultiBaas does not allow unknown remote clients to make API requests, so by adding the URL above, you are giving permission to your local Next.js app to query MultiBaas. By default the frontend will run on port 3000, but if you are running another server it will increment to 3001 etc. so you may need to adjust your CORS settings accordingly.
-
-## Install dependencies
-
-You can run the installation and configure things manually by skipping the postinstall script. Otherwise, feel free to use the Quickstart Guide at the beginning of this document.
 
 ```sh
 npm install
@@ -72,7 +60,7 @@ npm install
 
 ## Contract Deployment via Hardhat
 
-If you have not yet deployed the `SimpleVoting.sol` smart contract to your MultiBaas deployment, we will now do so using the Hardhat project.
+To deploy the `Lock.sol` smart contract to your MultiBaas deployment, we will now do so using the Hardhat project.
 
 ```sh
 cd blockchain
