@@ -1,6 +1,6 @@
 # Locked-Vault-DApp
 
-The is a hackathon project which try to build a frontend-only decentralized application that uses [MultiBaas](https://docs.curvegrid.com/multibaas/) to handle a smart contract which deployed on CELO and could lock funds until a future date.
+The is a hackathon project which try to build a frontend-only decentralized application that uses [MultiBaas](https://docs.curvegrid.com/multibaas/) to handle a smart contract which deployed on [CELO](https://docs.celo.org/cel2) and could lock funds until a future date.
 
 
 ## TODO
